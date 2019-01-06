@@ -5,8 +5,10 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = webpackMerge(common, {
   mode: 'production',
+  devtool: 'inline-source-map',
   output: {
-    publicPath: './public',
+    filename: '[name].[hash].js',
+    publicPath: './',
   },
   module: {
     rules: [
@@ -26,14 +28,27 @@ module.exports = webpackMerge(common, {
             'less-loader',
           ],
         }),
+        exclude: /node_modules/,
       },
     ],
+  },
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
   },
   plugins: [
     new UglifyJSPlugin({
       sourceMap: true,
     }),
-    new ExtractTextPlugin('index.[hash:6].css'),
+    new ExtractTextPlugin('index.[chunkHash].css'),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),

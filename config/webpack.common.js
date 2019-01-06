@@ -1,10 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: path.resolve(__dirname, '../src/index.js'),
   output: {
-    filename: 'index.[hash:6].js',
     path: path.resolve(__dirname, '../dist'),
   },
   module: {
@@ -32,6 +32,7 @@ module.exports = {
     extensions: ['.js', '.css', '.less', '.json'],
   },
   plugins: [
+    new webpack.HashedModuleIdsPlugin(),
     new htmlWebpackPlugin({
       inject: 'body',
       title: 'webpack learn',

@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const htmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, '../src/index.js'),
@@ -33,7 +33,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HashedModuleIdsPlugin(),
-    new htmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       inject: 'body',
       title: 'webpack learn',
       template: path.resolve(__dirname, '../index.html'),

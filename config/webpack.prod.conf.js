@@ -1,8 +1,13 @@
 const webpack = require('webpack');
-const common = require('./webpack.common');
+const chalk = require('chalk');
 const webpackMerge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+const common = require('./webpack.common');
+
 module.exports = webpackMerge(common, {
   mode: 'production',
   devtool: 'inline-source-map',
@@ -44,6 +49,7 @@ module.exports = webpackMerge(common, {
       },
     },
   },
+  stats: 'errors-only',
   plugins: [
     new UglifyJSPlugin({
       sourceMap: true,
@@ -52,5 +58,17 @@ module.exports = webpackMerge(common, {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
+    new CompressionPlugin({
+      filename: '[path].gz[query]',
+      test: /\.js(\?.*)?$/i,
+      algorithm: 'gzip',
+      deleteOriginalAssets: true,
+    }),
+    new ProgressBarPlugin({
+      format: `build [:bar]  ${chalk.green.bold(':percent')}`,
+      clear: false,
+      width: 30,
+    }),
+    new BundleAnalyzerPlugin(),
   ],
 });

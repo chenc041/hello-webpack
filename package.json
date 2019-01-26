@@ -4,9 +4,9 @@
   "license": "MIT",
   "author": "chenc",
   "scripts": {
-    "dev": "webpack-dev-server --config config/webpack.dev.conf.js",
+    "dev": "cross-env NODE_ENV=deveploment webpack-dev-server  --config config/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.conf.js",
-    "analyzer": "cross-env NODE_ENV=production webpack --config config/webpack.bundle.analyzer.js",
+    "analyzer": "cross-env ANALYZER=true webpack --config config/webpack.prod.conf.js",
     "clean": "rimraf ./dist",
     "prebuild": "npm run clean"
   },

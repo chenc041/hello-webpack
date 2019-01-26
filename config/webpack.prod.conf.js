@@ -5,8 +5,37 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const common = require('./webpack.common');
+
+const { NODE_ENV, ANALYZER } = process.env;
+const plugins = [
+  new UglifyJSPlugin({
+    sourceMap: true,
+  }),
+  new ExtractTextPlugin('index.[chunkHash].css'),
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify('production'),
+  }),
+  new ProgressBarPlugin({
+    format: `build [:bar]  ${chalk.green.bold(':percent')}`,
+    clear: false,
+    width: 30,
+  }),
+];
+if (NODE_ENV === 'production') {
+  plugins.push(
+    new CompressionPlugin({
+      filename: '[path].gz[query]',
+      test: /\.js(\?.*)?$/i,
+      algorithm: 'gzip',
+      deleteOriginalAssets: false,
+    }),
+  )
+}
+if (ANALYZER === 'true') {
+  plugins.push(new BundleAnalyzerPlugin())
+}
 
 module.exports = webpackMerge(common, {
   mode: 'production',
@@ -49,26 +78,13 @@ module.exports = webpackMerge(common, {
       },
     },
   },
-  stats: 'errors-only',
-  plugins: [
-    new UglifyJSPlugin({
-      sourceMap: true,
-    }),
-    new ExtractTextPlugin('index.[chunkHash].css'),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production'),
-    }),
-    new CompressionPlugin({
-      filename: '[path].gz[query]',
-      test: /\.js(\?.*)?$/i,
-      algorithm: 'gzip',
-      deleteOriginalAssets: true,
-    }),
-    new ProgressBarPlugin({
-      format: `build [:bar]  ${chalk.green.bold(':percent')}`,
-      clear: false,
-      width: 30,
-    }),
-    new BundleAnalyzerPlugin(),
-  ],
+  stats: {
+    modules: false,
+    children: false,
+    chunks: false,
+    warnings: false,
+    performance: false,
+    chunkModules: false,
+  },
+  plugins,
 });

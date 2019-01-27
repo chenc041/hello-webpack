@@ -7,7 +7,7 @@
     "dev": "cross-env NODE_ENV=deveploment webpack-dev-server  --config config/webpack.dev.conf.js",
     "dev:ts": "cross-env NODE_ENV=deveploment TS=true webpack-dev-server  --config config/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.conf.js",
-    "build:ts": "cross-env NODE_ENV=production TS=true webpack-dev-server webpack --config config/webpack.prod.conf.js",
+    "build:ts": "yarn clean && cross-env NODE_ENV=production TS=true webpack --config config/webpack.prod.conf.js",
     "analyzer": "cross-env ANALYZER=true webpack --config config/webpack.prod.conf.js",
     "clean": "rimraf ./dist",
     "prebuild": "npm run clean"

@@ -2,18 +2,14 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
-  entry: path.resolve(__dirname, '../src/index.js'),
+const { TS } = process.env;
+const config = {
+  entry: path.resolve(__dirname, '../src/index'),
   output: {
     path: path.resolve(__dirname, '../dist'),
   },
   module: {
     rules: [
-      {
-        test: /\.jsx?$/,
-        use: ['babel-loader'],
-        exclude: /node_modules/,
-      },
       {
         test: /\.(png|jpg|gif)$/i,
         use: [
@@ -29,7 +25,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.css', '.less', '.json'],
+    extensions: ['.tsx', '.jsx', '.js'],
   },
   plugins: [
     new webpack.HashedModuleIdsPlugin(),
@@ -40,3 +36,18 @@ module.exports = {
     }),
   ],
 };
+if (TS === 'true') {
+  config.module.rules.push({
+    test: /\.tsx?$/,
+    use: 'ts-loader',
+    exclude: /node_modules/,
+  });
+} else {
+  config.module.rules.push({
+    test: /\.jsx?$/,
+    use: ['babel-loader'],
+    exclude: /node_modules/,
+  });
+}
+
+module.exports = config;

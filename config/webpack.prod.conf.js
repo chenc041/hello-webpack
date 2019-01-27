@@ -9,35 +9,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const common = require('./webpack.common');
 
 const { NODE_ENV, ANALYZER } = process.env;
-const plugins = [
-  new UglifyJSPlugin({
-    sourceMap: true,
-  }),
-  new ExtractTextPlugin('index.[chunkHash].css'),
-  new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify('production'),
-  }),
-  new ProgressBarPlugin({
-    format: `build [:bar]  ${chalk.green.bold(':percent')}`,
-    clear: false,
-    width: 30,
-  }),
-];
-if (NODE_ENV === 'production') {
-  plugins.push(
-    new CompressionPlugin({
-      filename: '[path].gz[query]',
-      test: /\.js(\?.*)?$/i,
-      algorithm: 'gzip',
-      deleteOriginalAssets: false,
-    }),
-  )
-}
-if (ANALYZER === 'true') {
-  plugins.push(new BundleAnalyzerPlugin())
-}
-
-module.exports = webpackMerge(common, {
+const config = {
   mode: 'production',
   devtool: 'inline-source-map',
   output: {
@@ -86,5 +58,33 @@ module.exports = webpackMerge(common, {
     performance: false,
     chunkModules: false,
   },
-  plugins,
-});
+  plugins: [
+    new UglifyJSPlugin({
+      sourceMap: true,
+    }),
+    new ExtractTextPlugin('index.[chunkHash].css'),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
+    new ProgressBarPlugin({
+      format: `build [:bar]  ${chalk.green.bold(':percent')}`,
+      clear: false,
+      width: 30,
+    }),
+  ],
+};
+if (NODE_ENV === 'production') {
+  config.plugins.push(
+    new CompressionPlugin({
+      filename: '[path].gz[query]',
+      test: /\.js(\?.*)?$/i,
+      algorithm: 'gzip',
+      deleteOriginalAssets: false,
+    }),
+  )
+}
+if (ANALYZER === 'true') {
+  config.plugins.push(new BundleAnalyzerPlugin())
+}
+
+module.exports = webpackMerge(common, config);

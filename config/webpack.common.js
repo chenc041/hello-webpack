@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const { TS } = process.env;
 const config = {
   entry: path.resolve(__dirname, '../src/index'),
   output: {
@@ -22,6 +21,18 @@ const config = {
           },
         ],
       },
+      {
+        test: /\.(tsx|jsx|js)$/,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+          {
+            loader: 'ts-loader',
+          },
+        ],
+        exclude: /node_modules/ ,
+      },
     ],
   },
   resolve: {
@@ -36,18 +47,5 @@ const config = {
     }),
   ],
 };
-if (TS === 'true') {
-  config.module.rules.push({
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/,
-  });
-} else {
-  config.module.rules.push({
-    test: /\.jsx?$/,
-    use: ['babel-loader'],
-    exclude: /node_modules/,
-  });
-}
 
 module.exports = config;

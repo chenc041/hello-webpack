@@ -5,9 +5,20 @@ export interface DemoProps {
 }
 
 class Demo extends React.Component<DemoProps, {}> {
+  state = {
+    age: '13',
+  }
+  test = (e: any) => {
+    const { value } = e.target;
+    console.log('___________')
+    this.setState({
+      age: value
+    })
+  }
   render() {
     const { name } = this.props;
-    return <div>man ???? {name}</div>;
+    const { age } = this.state;
+    return <div>manaaaa aaaa aaa???? {name} </div>;
   }
 }
 export default Demo;

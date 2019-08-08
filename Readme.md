@@ -1,7 +1,7 @@
 ### hello-webpack
 
 - 基于webpack的react前端工程
-- 默认采用 js 模式
+- 默认采用 ts
 
 #### 已完成功能
 
@@ -13,12 +13,9 @@
 - bundle-analyze
 - ts
 
-
-### 新增 ts 支持
 #### 使用方法
-- 将 index.js, app.js 修改为 index.tsx app.tsx
 ```bash
-yarn dev:ts
+yarn dev
 
-yarn build:ts
+yarn build
 ```

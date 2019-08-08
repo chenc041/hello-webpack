@@ -8,18 +8,27 @@
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.conf.js",
     "analyzer": "cross-env ANALYZER=true webpack --config config/webpack.prod.conf.js",
     "clean": "rimraf ./dist",
-    "prebuild": "npm run clean"
+    "prebuild": "npm run clean",
+    "lint-staged": "lint-staged",
+    "lint-staged:tsx": "tsc --noEmit && eslint --fix 'src/**/**/*.{js,ts,tsx}'",
+    "prettier": "prettier --write src/**/**/*.tsx"
   },
+  "browserslist": [
+    "cover 99.5% in CN"
+  ],
   "dependencies": {
     "antd": "^3.19.8",
+    "core-js": "3",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.5.5",
     "@types/react": "^16.7.21",
     "@types/react-dom": "^16.0.11",
     "@types/react-hot-loader": "^4.1.0",
@@ -32,23 +41,25 @@
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "cssnano": "^4.1.8",
-    "eslint": "^5.12.0",
+    "eslint": "^6.1.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^3.0.1",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.2",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
+    "lint-staged": "^9.2.1",
     "postcss-adaptive": "^0.5.0",
     "postcss-loader": "^3.0.0",
     "precss": "^4.0.0",
-    "prettier": "^1.15.3",
+    "prettier": "^1.18.2",
     "progress-bar-webpack-plugin": "^1.11.0",
     "react-hot-loader": "^4.6.3",
     "rimraf": "^2.6.3",
@@ -64,5 +75,21 @@
     "webpack-cli": "^3.2.0",
     "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.2.1"
+  },
+  "lint-staged": {
+    "src/**/**/*.tsx": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/**/*.tsx": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.tsx": "npm run lint-staged:tsx"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
   }
 }

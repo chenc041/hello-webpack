@@ -4,17 +4,16 @@ import Yao from './yaoyao.png';
 import Demo from './Demo';
 
 export interface HelloProps {
-  name: string
+  name: string;
 }
 
-const Hello: React.FunctionComponent<HelloProps> = (props) => {
+const Hello: React.FunctionComponent<HelloProps> = props => {
   const { name } = props;
   return (
     <div className={style.hello}>
       <div>{name}</div>
-      <Demo name='a`1s' />
+      <Demo />
       <img src={Yao} alt="test" />
-      <img src="" alt="" />
     </div>
   );
 };

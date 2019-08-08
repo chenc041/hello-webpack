@@ -19,9 +19,11 @@
   "dependencies": {
     "antd": "^3.19.8",
     "core-js": "3",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-router-dom": "^4.3.1"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "redux": "^4.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -32,7 +34,9 @@
     "@types/react": "^16.7.21",
     "@types/react-dom": "^16.0.11",
     "@types/react-hot-loader": "^4.1.0",
+    "@types/react-redux": "^7.1.1",
     "@types/react-router-dom": "^4.3.1",
+    "@types/redux": "^3.6.0",
     "autoprefixer": "^9.4.4",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
@@ -61,7 +65,7 @@
     "precss": "^4.0.0",
     "prettier": "^1.18.2",
     "progress-bar-webpack-plugin": "^1.11.0",
-    "react-hot-loader": "^4.6.3",
+    "react-hot-loader": "^4.12.10",
     "rimraf": "^2.6.3",
     "style-loader": "^0.23.1",
     "stylelint": "^9.9.0",
@@ -72,8 +76,8 @@
     "url-loader": "^1.1.2",
     "webpack": "^4.28.3",
     "webpack-bundle-analyzer": "^3.0.3",
-    "webpack-cli": "^3.2.0",
-    "webpack-dev-server": "^3.1.14",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2",
     "webpack-merge": "^4.2.1"
   },
   "lint-staged": {

@@ -1,20 +1,35 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import style from './styles.less';
 import Yao from './yaoyao.png';
-import Demo from './Demo';
 
 export interface HelloProps {
   name: string;
 }
 
-const Hello: React.FunctionComponent<HelloProps> = props => {
-  const { name } = props;
-  return (
-    <div className={style.hello}>
-      <div>{name}</div>
-      <Demo />
-      <img src={Yao} alt="test" />
-    </div>
-  );
+class Hello extends React.PureComponent<any, any> {
+  handleClick = () => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'INCREMENT',
+    });
+  };
+
+  render() {
+    console.log(this.props, '-------');
+    return (
+      <div className={style.hello}>
+        <div onClick={this.handleClick}>helo chenc</div>
+        <img src={Yao} alt="test" />
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state: any) => {
+  return {
+    counter: state,
+  };
 };
-export default Hello;
+
+export default connect(mapStateToProps)(Hello);

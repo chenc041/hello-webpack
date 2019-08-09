@@ -7,8 +7,9 @@ export interface HelloProps {
   name: string;
 }
 
-class Hello extends React.PureComponent<any, any> {
+class Hello extends React.PureComponent<{}, {}> {
   handleClick = () => {
+    // @ts-ignore
     const { dispatch } = this.props;
     dispatch({
       type: 'INCREMENT',
@@ -26,7 +27,7 @@ class Hello extends React.PureComponent<any, any> {
   }
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: number) => {
   return {
     counter: state,
   };

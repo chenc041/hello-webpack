@@ -1,3 +1,4 @@
+// @ts-nocheck
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
@@ -36,7 +37,6 @@ module.exports = webpackMerge(common, {
     overlay: true,
     publicPath: '/',
     contentBase: './dist',
-    clientLogLevel: 'none',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

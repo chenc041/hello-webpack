@@ -1,8 +1,14 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store from './store';
+import configureStore from './store';
 import App from './app';
+import rootSaga from './sagas';
+
+const store = configureStore();
+store.runSaga(rootSaga);
+
+console.log(store.getState(), 'this is store', store);
 
 // @ts-ignore
 const render = Component =>

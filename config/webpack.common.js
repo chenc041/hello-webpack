@@ -1,6 +1,8 @@
+// @ts-nocheck
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 const config = {
   entry: path.resolve(__dirname, '../src/index'),
@@ -10,7 +12,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(png|jpg|gif)$/i,
+        test: /\.(png|jpg|jpeg|gif)$/i,
         use: [
           {
             loader: 'url-loader',
@@ -22,7 +24,7 @@ const config = {
         ],
       },
       {
-        test: /\.(tsx|jsx|js)$/,
+        test: /\.(ts|tsx|jsx|js)$/,
         use: [
           {
             loader: 'babel-loader',
@@ -31,14 +33,20 @@ const config = {
             loader: 'ts-loader',
           },
         ],
-        exclude: /node_modules/ ,
+        exclude: /node_modules/,
       },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.jsx', '.js'],
+    extensions: ['.tsx', '.jsx', '.ts', '.js'],
   },
   plugins: [
+    new HardSourceWebpackPlugin({
+      info: {
+        mode: 'none',
+        level: 'debug',
+      },
+    }),
     new webpack.HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
       inject: 'body',

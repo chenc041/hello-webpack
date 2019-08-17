@@ -1,3 +1,4 @@
+// @ts-nocheck
 const webpack = require('webpack');
 const chalk = require('chalk');
 const webpackMerge = require('webpack-merge');
@@ -80,11 +81,11 @@ if (NODE_ENV === 'production') {
       test: /\.js(\?.*)?$/i,
       algorithm: 'gzip',
       deleteOriginalAssets: false,
-    }),
-  )
+    })
+  );
 }
 if (ANALYZER === 'true') {
-  config.plugins.push(new BundleAnalyzerPlugin())
+  config.plugins.push(new BundleAnalyzerPlugin());
 }
 
 module.exports = webpackMerge(common, config);

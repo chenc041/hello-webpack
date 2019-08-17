@@ -1,35 +1,87 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import style from './styles.less';
-import Yao from './yaoyao.png';
 
 export interface HelloProps {
   name: string;
+  count: { count: number };
+  dispatch(params: {
+    type: string;
+    payload: {
+      [key: string]: string | number | Record<string, number>;
+    };
+  }): void;
 }
 
-class Hello extends React.PureComponent<{}, {}> {
+let age = 10;
+
+class Hello extends React.PureComponent<HelloProps, {}> {
+  state = {
+    age: 10,
+  };
+
   handleClick = () => {
-    // @ts-ignore
+    const { dispatch } = this.props;
+    age += 10;
+    dispatch({
+      type: 'count/increment',
+      payload: {
+        age,
+      },
+    });
+  };
+
+  handleClickAsync = () => {
     const { dispatch } = this.props;
     dispatch({
-      type: 'INCREMENT',
+      type: 'count/increment',
+      payload: {
+        count: 9999999999,
+      },
     });
   };
 
   render() {
-    console.log(this.props, '-------');
+    // @ts-ignore
+    console.log(this.props.count);
     return (
       <div className={style.hello}>
-        <div onClick={this.handleClick}>helo chenc</div>
-        <img src={Yao} alt="test" />
+        <div
+          onClick={this.handleClick}
+          style={{
+            width: 120,
+            height: 40,
+            border: '1px solid red',
+            marginBottom: 20,
+            fontSize: '16px',
+            lineHeight: '40px',
+            textAlign: 'center',
+          }}
+        >
+          increment
+        </div>
+        <div
+          onClick={this.handleClickAsync}
+          style={{
+            width: 120,
+            height: 40,
+            border: '1px solid red',
+            marginBottom: 20,
+            fontSize: '16px',
+            lineHeight: '40px',
+            textAlign: 'center',
+          }}
+        >
+          incrementAsync
+        </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state: number) => {
+const mapStateToProps = ({ count }: { count: any }) => {
   return {
-    counter: state,
+    count,
   };
 };
 

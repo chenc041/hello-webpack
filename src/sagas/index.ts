@@ -1,17 +1,17 @@
 import { all, takeEvery } from 'redux-saga/effects';
 import count from '../models/count';
-const { effects, namespace } = count;
-export interface PayloadProps {
-  type: string;
-  payload: {
-    [key: string]: string | number;
-  };
+import demo from '../models/demo';
+
+function* generatorTask(models) {
+  for (const model of models) {
+    for (let item of Object.keys(model.effects)) {
+      yield takeEvery(`${model.namespace}/${item}`, model.effects[item]);
+    }
+  }
 }
 
 export function* watchAllTask() {
-  for (let item of Object.keys(effects)) {
-    yield takeEvery(`${namespace}/${item}`, effects[item]);
-  }
+  yield generatorTask([count, demo]);
 }
 
 export default function* rootSaga() {

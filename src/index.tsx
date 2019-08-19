@@ -7,9 +7,6 @@ import rootSaga from './sagas';
 
 const store = configureStore();
 store.runSaga(rootSaga);
-
-console.log(store.getState(), 'this is store', store);
-
 // @ts-ignore
 const render = Component =>
   ReactDOM.render(

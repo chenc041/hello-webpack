@@ -8,24 +8,24 @@ export interface PayloadProps {
 }
 
 export default {
-  namespace: 'count',
+  namespace: 'demo',
   state: {
     age: 0,
   },
   effects: {
-    *incrementAsync() {
+    *incrementAsyncDemo() {
       const result = yield call(queryCenter);
-      yield put({ type: 'count/increment', payload: result });
+      yield put({ type: 'demo/incrementDemo', payload: result });
     },
   },
   reducers: {
-    increment(state: any, action: any) {
+    incrementDemo(state: any, action: any) {
       return {
         ...state,
         ...action.payload,
       };
     },
-    incrementTwo(state: any, action: any) {
+    incrementTwoDemo(state: any, action: any) {
       return {
         ...state,
         ...action.payload,

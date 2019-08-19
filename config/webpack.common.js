@@ -41,17 +41,17 @@ const config = {
     extensions: ['.tsx', '.jsx', '.ts', '.js'],
   },
   plugins: [
-    new HardSourceWebpackPlugin({
-      info: {
-        mode: 'none',
-        level: 'debug',
-      },
-    }),
     new webpack.HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
       inject: 'body',
       title: 'webpack learn',
       template: path.resolve(__dirname, '../index.html'),
+    }),
+    new HardSourceWebpackPlugin({
+      info: {
+        mode: 'none',
+        level: 'debug',
+      },
     }),
   ],
 };

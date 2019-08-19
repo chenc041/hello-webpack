@@ -34,7 +34,27 @@ class Hello extends React.PureComponent<HelloProps, {}> {
   handleClickAsync = () => {
     const { dispatch } = this.props;
     dispatch({
-      type: 'count/increment',
+      type: 'count/incrementAsync',
+      payload: {
+        count: 9999999999,
+      },
+    });
+  };
+
+  handleDemoClick = () => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'demo/incrementDemo',
+      payload: {
+        age: 100,
+      },
+    });
+  };
+
+  handleDemoClickAsync = () => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'demo/incrementAsyncDemo',
       payload: {
         count: 9999999999,
       },
@@ -42,14 +62,12 @@ class Hello extends React.PureComponent<HelloProps, {}> {
   };
 
   render() {
-    // @ts-ignore
-    console.log(this.props.count);
     return (
       <div className={style.hello}>
         <div
           onClick={this.handleClick}
           style={{
-            width: 120,
+            width: 300,
             height: 40,
             border: '1px solid red',
             marginBottom: 20,
@@ -61,9 +79,37 @@ class Hello extends React.PureComponent<HelloProps, {}> {
           increment
         </div>
         <div
+          onClick={this.handleDemoClick}
+          style={{
+            width: 300,
+            height: 40,
+            border: '1px solid red',
+            marginBottom: 20,
+            fontSize: '16px',
+            lineHeight: '40px',
+            textAlign: 'center',
+          }}
+        >
+          demo increment
+        </div>
+        <div
+          onClick={this.handleDemoClickAsync}
+          style={{
+            width: 300,
+            height: 40,
+            border: '1px solid red',
+            marginBottom: 20,
+            fontSize: '16px',
+            lineHeight: '40px',
+            textAlign: 'center',
+          }}
+        >
+          demo incrementAsync
+        </div>
+        <div
           onClick={this.handleClickAsync}
           style={{
-            width: 120,
+            width: 300,
             height: 40,
             border: '1px solid red',
             marginBottom: 20,
@@ -79,8 +125,9 @@ class Hello extends React.PureComponent<HelloProps, {}> {
   }
 }
 
-const mapStateToProps = ({ count }: { count: any }) => {
+const mapStateToProps = ({ count, demo }: { count: any; demo: any }) => {
   return {
+    demo,
     count,
   };
 };

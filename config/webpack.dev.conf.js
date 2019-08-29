@@ -37,6 +37,7 @@ module.exports = webpackMerge(common, {
     overlay: true,
     publicPath: '/',
     contentBase: './dist',
+    historyApiFallback: true,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

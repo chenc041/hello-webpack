@@ -5,7 +5,7 @@ import Hello from './component/Hello';
 
 const AppRouter = () => (
   <Router>
-    <Route path="/" exact component={Hello} />
+    <Route exact path="/" component={Hello} />
   </Router>
 );
 

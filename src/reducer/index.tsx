@@ -4,14 +4,19 @@ import demo from '../models/demo';
 
 function generatorReducer(models) {
   const reducer = {};
+  const childReducer = {};
   for (const model of models) {
-    reducer[model.namespace] = function(state = model.state, action) {
-      for (let i = 0; i < Object.keys(model.reducers).length; i += 1) {
-        if (`${model.namespace}/${Object.keys(model.reducers)[i]}` === action.type) {
-          return model.reducers[Object.keys(model.reducers)[i]](state, action);
-        } else {
-          return state;
-        }
+    for (let i = 0; i < Object.keys(model.reducers).length; i += 1) {
+      childReducer[`${model.namespace}/${Object.keys(model.reducers)[i]}`] = model.reducers[Object.keys(model.reducers)[i]];
+    }
+  }
+  for (const model of models) {
+    const initState = model.state;
+    reducer[model.namespace] = function(state = initState, action) {
+      if (childReducer[action.type]) {
+        return childReducer[action.type](state, action);
+      } else {
+        return state;
       }
     };
   }

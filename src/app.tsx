@@ -1,12 +1,8 @@
-import * as React from 'react';
-import * as HotLoader from 'react-hot-loader';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Hello from './component/Hello';
+import React from 'react';
+import '~/index.scss';
 
-const AppRouter = () => (
-  <Router>
-    <Route exact path="/" component={Hello} />
-  </Router>
-);
+const App = () => {
+  return <div>App12</div>;
+};
 
-export default HotLoader.hot(module)(AppRouter);
+export default App;

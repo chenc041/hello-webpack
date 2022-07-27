@@ -3,14 +3,11 @@
     [
       "@babel/preset-env",
       {
-        "corejs": 3,
-        "useBuiltIns": "usage"
+        "useBuiltIns": "usage",
+        "corejs": "3.24",
+        "modules":"commonjs"
       }
     ],
     "@babel/preset-react"
-  ],
-  "plugins": [
-    "react-hot-loader/babel",
-    "@babel/plugin-transform-runtime"
   ]
 }

@@ -1,21 +1,21 @@
 ### hello-webpack
+> A react template based on webpack and typescript
 
-- 基于webpack的react前端工程
-- 默认采用 ts
-
-#### 已完成功能
-
+#### feature
+- typescript
 - hmr
-- less & css modules
+- scss & css modules
 - gzip
 - eslint
 - stylelint
 - bundle-analyze
-- ts
 
-#### 使用方法
+#### dev
 ```bash
-yarn dev
+pnpm run dev
+```
 
-yarn build
+#### prod
+```bash
+pnpm run build
 ```

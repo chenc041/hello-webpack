@@ -5,6 +5,7 @@ export default merge(config, {
   mode: 'development',
   devtool: 'source-map',
   devServer: {
+    hot: true,
     port: 'auto',
     open: true,
     client: {

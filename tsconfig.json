@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "lib": [
       "DOM",
       "DOM.Iterable",
@@ -31,6 +31,8 @@
     ]
   },
   "include": [
-    "./src"
-  ]
+    "./src",
+    "./declaration.d.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
 }

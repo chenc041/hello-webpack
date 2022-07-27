@@ -24,6 +24,7 @@
     "react/no-render-return-value": 0,
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/no-empty-function": 0,
     "@typescript-eslint/explicit-member-accessibility": 0,
     "@typescript-eslint/explicit-function-return-type": 0
   }

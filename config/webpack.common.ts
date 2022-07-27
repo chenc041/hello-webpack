@@ -18,7 +18,9 @@ export const config: webpack.Configuration = {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
+              modules: {
+                localIdentName: '[name]__[local]__[hash:base64:5]',
+              },
             },
           },
           'postcss-loader',

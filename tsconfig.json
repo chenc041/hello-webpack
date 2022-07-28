@@ -32,7 +32,7 @@
   },
   "include": [
     "./src",
-    "./declaration.d.ts"
+    "./global.d.ts"
   ],
   "exclude": ["node_modules", "dist"]
 }

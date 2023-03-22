@@ -32,6 +32,7 @@
   },
   "include": [
     "./src",
+    "./config",
     "./global.d.ts"
   ],
   "exclude": ["node_modules", "dist"]

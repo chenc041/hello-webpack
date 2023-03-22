@@ -61,7 +61,7 @@ export const config: webpack.Configuration = {
     },
   },
   plugins: [
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({ filename: '[name].[hash:4].css' }),
     new webpack.ProgressPlugin({
       activeModules: true,
       entries: true,

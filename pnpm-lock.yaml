@@ -10,7 +10,7 @@ specifiers:
   '@types/react': ^18.0.28
   '@types/react-dom': ^18.0.11
   '@types/react-helmet': ^6.1.6
-  '@types/webpack': ^5.28.0
+  '@types/webpack': ^4.41.32
   '@types/webpack-bundle-analyzer': ^4.6.0
   '@typescript-eslint/eslint-plugin': ^5.56.0
   '@typescript-eslint/parser': ^5.56.0
@@ -78,7 +78,7 @@ devDependencies:
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   '@types/react-helmet': 6.1.6
-  '@types/webpack': 5.28.0_webpack-cli@5.0.1
+  '@types/webpack': 4.41.32
   '@types/webpack-bundle-analyzer': 4.6.0_webpack-cli@5.0.1
   '@typescript-eslint/eslint-plugin': 5.56.0_2hcjazgfnbtq42tcc73br2vup4
   '@typescript-eslint/parser': 5.56.0_j4766f7ecgqbon3u7zlxn5zszu
@@ -1779,19 +1779,6 @@ packages:
       '@types/webpack-sources': 3.2.0
       anymatch: 3.1.2
       source-map: 0.6.1
-    dev: true
-
-  /@types/webpack/5.28.0_webpack-cli@5.0.1:
-    resolution: {integrity: sha512-8cP0CzcxUiFuA9xGJkfeVpqmWTk9nx6CWwamRGCj95ph1SmlRRk9KlCZ6avhCbZd4L68LvYT6l1kpdEnQXrF8w==}
-    dependencies:
-      '@types/node': 18.15.5
-      tapable: 2.2.1
-      webpack: 5.76.2_webpack-cli@5.0.1
-    transitivePeerDependencies:
-      - '@swc/core'
-      - esbuild
-      - uglify-js
-      - webpack-cli
     dev: true
 
   /@types/ws/8.5.3:

@@ -104,8 +104,8 @@ devDependencies:
     specifier: ^6.2.0
     version: 6.2.0(webpack@5.76.2)
   html-webpack-plugin:
-    specifier: ^5.5.0
-    version: 5.5.0(webpack@5.76.2)
+    specifier: ^5.5.3
+    version: 5.5.3(webpack@5.76.2)
   husky:
     specifier: ^8.0.3
     version: 8.0.3
@@ -3934,7 +3934,7 @@ packages:
       he: 1.2.0
       param-case: 3.0.4
       relateurl: 0.2.7
-      terser: 5.14.2
+      terser: 5.16.6
     dev: true
 
   /html-tags@3.2.0:
@@ -3942,8 +3942,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /html-webpack-plugin@5.5.0(webpack@5.76.2):
-    resolution: {integrity: sha512-sy88PC2cRTVxvETRgUHFrL4No3UxvcH8G1NepGhqaTT+GXN2kTamqasot0inS5hXeg1cMbFDt27zzo9p35lZVw==}
+  /html-webpack-plugin@5.5.3(webpack@5.76.2):
+    resolution: {integrity: sha512-6YrDKTuqaP/TquFH7h4srYWsZx+x6k6+FbsTm0ziCwGHDP78Unr1r9F/H4+sGmMbX08GQcJ+K64x55b+7VM/jg==}
     engines: {node: '>=10.13.0'}
     peerDependencies:
       webpack: ^5.20.0
@@ -6411,17 +6411,6 @@ packages:
       serialize-javascript: 6.0.1
       terser: 5.16.6
       webpack: 5.76.2(webpack-cli@5.0.1)
-
-  /terser@5.14.2:
-    resolution: {integrity: sha512-oL0rGeM/WFQCUd0y2QrWxYnq7tfSuKBiqTjRPWrRgB46WD/kiwHwF8T23z78H6Q6kGCuuHcPB+KULHRdxvVGQA==}
-    engines: {node: '>=10'}
-    hasBin: true
-    dependencies:
-      '@jridgewell/source-map': 0.3.2
-      acorn: 8.8.0
-      commander: 2.20.3
-      source-map-support: 0.5.21
-    dev: true
 
   /terser@5.16.6:
     resolution: {integrity: sha512-IBZ+ZQIA9sMaXmRZCUMDjNH0D5AQQfdn4WUjHL0+1lF4TP1IHRJbrhb6fNaXWikrYQTSkb7SLxkeXAiy1p7mbg==}

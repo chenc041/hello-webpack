@@ -114,7 +114,7 @@ devDependencies:
     version: 13.3.0
   mini-css-extract-plugin:
     specifier: ^2.7.6
-    version: 2.8.0(webpack@5.90.1)
+    version: 2.8.1(webpack@5.90.1)
   prettier:
     specifier: ^3.0.0
     version: 3.2.5
@@ -4704,8 +4704,8 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /mini-css-extract-plugin@2.8.0(webpack@5.90.1):
-    resolution: {integrity: sha512-CxmUYPFcTgET1zImteG/LZOy/4T5rTojesQXkSNBiquhydn78tfbCE9sjIjnJ/UcjNjOC1bphTCCW5rrS7cXAg==}
+  /mini-css-extract-plugin@2.8.1(webpack@5.90.1):
+    resolution: {integrity: sha512-/1HDlyFRxWIZPI1ZpgqlZ8jMw/1Dp/dl3P0L1jtZ+zVcHqwPhGwaJwKL00WVgfnBy6PWCde9W65or7IIETImuA==}
     engines: {node: '>= 12.13.0'}
     peerDependencies:
       webpack: ^5.0.0

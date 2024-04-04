@@ -10,7 +10,7 @@ dependencies:
     version: 1.6.8
   core-js:
     specifier: ^3.29.1
-    version: 3.35.1
+    version: 3.36.1
   postcss:
     specifier: ^8.4.38
     version: 8.4.38
@@ -2816,8 +2816,8 @@ packages:
       browserslist: 4.23.0
     dev: true
 
-  /core-js@3.35.1:
-    resolution: {integrity: sha512-IgdsbxNyMskrTFxa9lWHyMwAJU5gXOPP+1yO+K59d50VLVAIDAbs7gIv705KzALModfK3ZrSZTPNpC0PQgIZuw==}
+  /core-js@3.36.1:
+    resolution: {integrity: sha512-BTvUrwxVBezj5SZ3f10ImnX2oRByMxql3EimVqMysepbC9EeMUOpLwdy6Eoili2x6E4kf+ZUB5k/+Jv55alPfA==}
     requiresBuild: true
     dev: false
 

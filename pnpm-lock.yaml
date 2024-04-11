@@ -83,8 +83,8 @@ devDependencies:
     specifier: ^7.0.3
     version: 7.0.3
   css-loader:
-    specifier: ^7.0.0
-    version: 7.0.0(webpack@5.91.0)
+    specifier: ^7.1.1
+    version: 7.1.1(webpack@5.91.0)
   cssnano:
     specifier: ^6.0.1
     version: 6.1.2(postcss@8.4.38)
@@ -2862,8 +2862,8 @@ packages:
     engines: {node: '>=12 || >=16'}
     dev: true
 
-  /css-loader@7.0.0(webpack@5.91.0):
-    resolution: {integrity: sha512-WrO4FVoamxt5zY9CauZjoJgXRi/LZKIk+Ta7YvpSGr5r/eMYPNp5/T9ODlMe4/1rF5DYlycG1avhV4g3A/tiAw==}
+  /css-loader@7.1.1(webpack@5.91.0):
+    resolution: {integrity: sha512-OxIR5P2mjO1PSXk44bWuQ8XtMK4dpEqpIyERCx3ewOo3I8EmbcxMPUc5ScLtQfgXtOojoMv57So4V/C02HQLsw==}
     engines: {node: '>= 18.12.0'}
     peerDependencies:
       '@rspack/core': 0.x || 1.x

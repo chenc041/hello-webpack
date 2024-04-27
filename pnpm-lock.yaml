@@ -116,7 +116,7 @@ importers:
         version: 15.2.2
       mini-css-extract-plugin:
         specifier: ^2.7.6
-        version: 2.8.1(webpack@5.91.0(webpack-cli@5.1.4(webpack-bundle-analyzer@4.10.1)(webpack-dev-server@5.0.4)(webpack@5.91.0)))
+        version: 2.9.0(webpack@5.91.0(webpack-cli@5.1.4(webpack-bundle-analyzer@4.10.1)(webpack-dev-server@5.0.4)(webpack@5.91.0)))
       prettier:
         specifier: ^3.0.0
         version: 3.2.5
@@ -2777,8 +2777,8 @@ packages:
     resolution: {integrity: sha512-vqiC06CuhBTUdZH+RYl8sFrL096vA45Ok5ISO6sE/Mr1jRbGH4Csnhi8f3wKVl7x8mO4Au7Ir9D3Oyv1VYMFJw==}
     engines: {node: '>=12'}
 
-  mini-css-extract-plugin@2.8.1:
-    resolution: {integrity: sha512-/1HDlyFRxWIZPI1ZpgqlZ8jMw/1Dp/dl3P0L1jtZ+zVcHqwPhGwaJwKL00WVgfnBy6PWCde9W65or7IIETImuA==}
+  mini-css-extract-plugin@2.9.0:
+    resolution: {integrity: sha512-Zs1YsZVfemekSZG+44vBsYTLQORkPMwnlv+aehcxK/NLKC+EGhDB39/YePYYqx/sTk6NnYpuqikhSn7+JIevTA==}
     engines: {node: '>= 12.13.0'}
     peerDependencies:
       webpack: ^5.0.0
@@ -7087,7 +7087,7 @@ snapshots:
 
   mimic-fn@4.0.0: {}
 
-  mini-css-extract-plugin@2.8.1(webpack@5.91.0(webpack-cli@5.1.4(webpack-bundle-analyzer@4.10.1)(webpack-dev-server@5.0.4)(webpack@5.91.0))):
+  mini-css-extract-plugin@2.9.0(webpack@5.91.0(webpack-cli@5.1.4(webpack-bundle-analyzer@4.10.1)(webpack-dev-server@5.0.4)(webpack@5.91.0))):
     dependencies:
       schema-utils: 4.2.0
       tapable: 2.2.1
